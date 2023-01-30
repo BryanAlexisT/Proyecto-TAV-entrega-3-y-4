@@ -66,10 +66,15 @@
                                 <td>{{ pro.idProducto}}</td>
                                 <td>{{ pro.nombreProducto }}</td>
                                 <td>{{ pro.precio }}</td>
-                                <td>{{ pro.imagen }}</td>
+                                <td>
+                                    <img src="{{ pro.imagen.url }}" height="50" >
+                            
+                                
+                                </td>
                                 <td>{{ pro.nombreCategoria }}</td>
-                                <td><a href="{% url 'modificar'%}" class="btn btn-info">Editar</a></td>
-                                <td><a href="" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                                <td><a href="#" class="btn btn-info">Editar</a></td>
+
+                                <td><a href="{% url 'eliminar' pro.idProducto %}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                             </tr>
                             {% endfor %}
 

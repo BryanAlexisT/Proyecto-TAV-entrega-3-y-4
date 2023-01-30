@@ -14,7 +14,8 @@ class Producto(models.Model):
     nombreProducto = models.CharField(max_length = 25, verbose_name="nombreProducto")
     precio = models.CharField(max_length = 6, null = True, blank = True, verbose_name="Precio") 
     imagen = models.ImageField(upload_to='core/MEDIA/', blank=False, null=True)
-    nombreCategoria = models.ForeignKey('Categoria', verbose_name = "nombreVategoria", on_delete = models.CASCADE)
+    nombreCategoria = models.ForeignKey('Categoria', verbose_name = "nombreCategoria", on_delete = models.CASCADE)
         
     def __str__ (self):
         return self.nombreProducto
+

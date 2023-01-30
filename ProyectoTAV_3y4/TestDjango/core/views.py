@@ -46,7 +46,6 @@ def agregar(request):
         'form' : ProductoForm()
     }
     print("bandera1")
-
     if request.method == 'POST':
         formulario = ProductoForm(request.POST, request.FILES)
         print(request.POST)
@@ -57,19 +56,28 @@ def agregar(request):
             print("bandera3")
     return render(request, 'core/adm_agregar.html', datos)
 
+def eliminar(request, id):
+    producto = Producto.objects.get(idProducto=id)
+    producto.delete()
+    return redirect(to="listar")
 
 
-def modificar(request, id):
+
+
+
+
+def modificar(request,id):
+    print("bandera1") 
     productos = Producto.objects.get(idProducto=id)
     datos = {
         'form' : ProductoForm(instance=productos)
     }
-
+    print("bandera2") 
     if request.method == 'POST':
         formulario = ProductoForm(request.POST, instance=productos)
-
+        print("bandera3") 
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = "Guardados correctamente"
 
-    return render(request, 'core/adm_modificar', datos)
+    return redirect('templates')

@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': '127.0.0.1:1521/orcl',
-        'USER': 'c##prueba',
+        'USER': 'c#prueba',
         'PASSWORD': 'prueba',
         'TEST': {
             'USER': 'default_test',
@@ -132,5 +132,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'core/static'),]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL='/MEDIA/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'MEDIA/')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_URL = '/MEDIA/'
