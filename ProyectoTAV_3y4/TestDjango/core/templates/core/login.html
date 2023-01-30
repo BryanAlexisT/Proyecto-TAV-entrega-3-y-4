@@ -63,34 +63,40 @@
         </a>
     </header>
 
-    <div id="contenedor">
-        <div id="central">
-            <div id="login">
-                <div class="titulo">
-                    Bienvenido
-                </div>
-                <form id="loginform" action="productos.html">
-                    <input type="text" name="usuario" placeholder="Usuario" required>
+    <form method="post">
+        <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">
+                        Bienvenido
+                    </div>
+                    {% csrf_token %}
+                    
+                    <form id="loginform" action="">
+                        <input type="text"  placeholder="Usuario"name="usuario" required>
 
-                    <input type="password" placeholder="Contraseña" name="password" required>
+                        <input type="password" placeholder="Contraseña" name="password" required>
 
-                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
-                </form>
-                <div class="pie-form">
-                    <a href="{% url 'registrar' %}">¿No tienes Cuenta? Registrate</a>
+                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                    </form>
+                    <div class="pie-form">
+                        <a href="{% url 'registrar' %}">¿No tienes Cuenta? Registrate</a>
+                    </div>
+                    &nbsp;&nbsp;
                 </div>
-            </div>
-            <div class="inferior">
-                <a href="{% url 'home' %}">Volver</a>
+                <div class="inferior">
+                    <a href="{% url 'home' %}">Volver</a>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
-    
+
+
     <script src="{% static 'core/js/Loader.js'%}"></script>
     <script>
-        $(window).on("load", function() {
+        $(window).on("load", function () {
             $('body').addClass('loaded');
         });
     </script>

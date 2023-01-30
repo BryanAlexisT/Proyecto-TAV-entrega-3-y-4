@@ -19,3 +19,11 @@ class Producto(models.Model):
     def __str__ (self):
         return self.nombreProducto
 
+class nuevoUsuario(models.Model):
+    nombreUsuario = models.CharField(max_length=16, verbose_name = "nombreUsuario")
+    correo = models.CharField(max_length=50, verbose_name = "correo")
+    password = models.CharField(max_length=12, verbose_name="password")
+
+    def __str__(self):
+        return self.nombreUsuario
+

@@ -1,7 +1,8 @@
+from pyexpat.errors import messages
 from django.shortcuts import render,redirect
-from .models import Producto
+from .models import *
 from django import forms
-from .forms import ProductoForm
+from .forms import ProductoForm, UserForm
 # Create your views here.
 
 def home(request):
@@ -9,7 +10,17 @@ def home(request):
     return render(request, 'core/index.html')
 
 def login(request):
-    
+    datos = {
+        'form' : UserForm()
+    }
+    if request.method=='POST':
+        try:
+            detalleUsuario=nuevoUsuario.objects.get(nombreUsuario=request.POST['usuario'], password=request.POST['password'])
+            print("usuario =", detalleUsuario)
+            request.session['nombreUsuario']=detalleUsuario.nombreUsuario
+            return render(request, 'core/indexuser.html')
+        except nuevoUsuario.DoesNotExist as e:
+            datos['mensaje'] = "nombre de usuario o contraseña no valido"
     return render(request, 'core/login.html')
 
 def contacto(request):
@@ -20,9 +31,18 @@ def infoPublica(request):
     
     return render(request, 'core/infoPublica.html')
 
-def Producto1(request):
+def seguimiento(request):
     
-    return render(request, 'core/Producto1.html')
+    return render(request, 'core/seguimiento.html')
+
+def Producto1(request):
+    productos = Producto.objects.all()
+    datos = {
+        'productos' : productos
+    }
+    
+    return render(request, 'core/producto1.html',datos)
+
 
 def Productos(request):
     
@@ -61,8 +81,10 @@ def eliminar(request, id):
     producto.delete()
     return redirect(to="listar")
 
-
-
+def modificar(request):
+    producto = Producto.objects.get(idProducto=id)
+    formulario = ProductoForm(request.POST or None, request.FILES or None, instance=producto)
+    return render(request, 'core/adm_modoficar.html',{'formulario': formulario})
 
 
 
@@ -74,10 +96,10 @@ def modificar(request,id):
     }
     print("bandera2") 
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST, instance=productos)
+        formulario = ProductoForm(request.POST, request.FILES, instance=productos)
         print("bandera3") 
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = "Guardados correctamente"
 
-    return redirect('templates')
+    return render(request, 'core/adm_modificar.html',datos)

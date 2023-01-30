@@ -25,7 +25,7 @@
         <div class="loader-section section-right"></div>
 
     </div>
-    
+
     <header class="TOP">
         <a class="logo" href="{% url 'home' %}">
             <img src="{% static 'core/img/tumascotita.jfif' %}" alt="Logo" style="width:100%px; height: 40px;">
@@ -34,6 +34,7 @@
         <label for="menu-bar" class="fa fa-bars"></label>
         <nav class="navbar">
             <div>
+
                 <a href="{% url 'login' %}">Iniciar Sesión</a>
                 <a href="#info">Nosotros</a>
                 <a href="{% url 'infoPublica' %}">Informaciones</a>
@@ -64,12 +65,13 @@
 
     <script src="{% static 'core/js/Loader.js'%}"></script>
     <script>
-        $(window).on("load", function() {
+        $(window).on("load", function () {
             $('body').addClass('loaded');
         });
     </script>
 
 </body>
+
 <!-- Footer -->
 <footer id="info" class="bg-success text-center text-white">
     <div class="container p-4">
@@ -109,7 +111,7 @@
         © 2020 Copyright:
         <a class="text-white" href="https://www.youtube.com/watch?v=xourX0D3U9Q">Tu Mascotita</a>
     </div>
-    
+
 
 </footer>
 

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
 from django.conf import settings
 from django.contrib.staticfiles.urls import static
@@ -16,7 +16,13 @@ urlpatterns = [
     path('/reg', registrar, name="registrar"),
     path('/lis', listar, name="listar"),
     path('/agr', agregar, name="agregar"),
-    path('mod/<id>', modificar, name="modificar"),
-    path('eliminar/<id>', eliminar, name="eliminar"),
+    path('/seg', seguimiento, name="seguimiento"),
+
+    path('modificar/<id>/', modificar, name="modificar"),
+
+    path('eliminar/<id>/', eliminar, name="eliminar"),
+
+
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

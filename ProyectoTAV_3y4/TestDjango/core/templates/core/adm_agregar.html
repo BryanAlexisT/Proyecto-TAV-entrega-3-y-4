@@ -43,14 +43,14 @@
 
 
 
-    <div class="row">
-        <h1>Crear Productos</h1>
+    <div class="si">
+        <h1>Agregar Productos</h1>
     </div>
     <div class="row">
         <form method="post" action="" id="formulario" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
-                <table border="1">
+                <table border="5" style="padding-left: 10rem;">
                     {{ form.as_table }}
                 </table>
             </div>

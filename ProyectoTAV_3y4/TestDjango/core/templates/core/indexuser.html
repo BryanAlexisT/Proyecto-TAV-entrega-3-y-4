@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'core/img/tumascotita.jfif' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Tu Mascotita</title>
+    <link rel="stylesheet" href="{% static  'core/css/index.css' %}">
+    <script src="https://kit.fontawesome.com/ac7ad0e6e7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+
+    <header class="TOP">
+        <a class="logo" href="{% url 'home' %}">
+            <img src="{% static 'core/img/tumascotita.jfif' %}" alt="Logo" style="width:100%px; height: 40px;">
+        </a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+        <nav class="navbar">
+            <div>
+
+                <a href="#info">Nosotros</a>
+                <a href="{% url 'infoPublica' %}">Informaciones</a>
+                <a href="{% url 'contacto' %}">Contacto</a>
+                <a href="{% url 'listar' %}">listar</a>
+                <a href="{% url 'home' %}">cerrar sesion</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="inicio" id="inicio">
+        <div class="content">
+            <h3>TU MASCOTITA <span>Productos y juguetes</span></h3>
+            <p>Encuentra todo tipo de juguetes, comida y accesorios para tus mascotas mientras nos ayudas!</p>
+            <a href="{% url 'Productos' %}" class="boton">Ver Productos</a>
+        </div>
+        <div class="image">
+            <img src="{% static 'core/img/perromaldito.png'%}" alt="">
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'core/js/Loader.js'%}"></script>
+    <script>
+        $(window).on("load", function () {
+            $('body').addClass('loaded');
+        });
+    </script>
+
+</body>
+
+<!-- Footer -->
+<footer id="info" class="bg-success text-center text-white">
+    <div class="container p-4">
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://es-la.facebook.com/whiskas.cl/"
+                role="button"><i class="fab fa-facebook-f"></i></a>
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/masterdogchile?lang=es"
+                role="button"><i class="fab fa-twitter"></i></a>
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1"
+                href="https://images7.memedroid.com/images/UPLOADED324/610fa5751dc1f.jpeg" role="button"><i
+                    class="fab fa-google"></i></a>
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/mascotas_online/?hl=es"
+                role="button"><i class="fab fa-instagram"></i></a>
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1"
+                href="https://images7.memedroid.com/images/UPLOADED324/610fa5751dc1f.jpeg" role="button"><i
+                    class="fab fa-linkedin"></i></a>
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/BryanAlexisT/ProyectoTav"
+                role="button"><i class="fab fa-github"></i></a>
+        </section>
+        <!-- DESCRIPCION -->
+        <section class="mb-4">
+            <p> Somos un grupo de amigas que comenzó a realizar la venta de productos para mascotas, todo esto para
+                ayudar a
+                una fundación sin fines de lucro, todo partió a través de las redes sociales, pero en la actualidad es
+                casi
+                imposible dar abasto a la demanda a través de las redes sociales.</p>
+        </section>
+    </div>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://www.youtube.com/watch?v=xourX0D3U9Q">Tu Mascotita</a>
+    </div>
+
+
+</footer>
+
+</html>

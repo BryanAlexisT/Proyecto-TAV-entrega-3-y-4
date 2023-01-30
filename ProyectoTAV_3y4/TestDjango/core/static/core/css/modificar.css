@@ -187,6 +187,9 @@
     transition: all 0.3s 1s ease-out;
 }
 
+.row{
+    padding-top: 3rem;
+}
 
 .TOP{
     position: fixed;
@@ -233,17 +236,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 3rem;
 
 }
-
-
 #error{
     padding: 2rem 3rem;
     border: 1px solid #000;
     width: 100;
 
 }
+
+
 
 
 
