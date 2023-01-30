@@ -81,3 +81,5 @@ def modificar(request,id):
             datos['mensaje'] = "Guardados correctamente"
 
     return redirect('templates')
+
+
