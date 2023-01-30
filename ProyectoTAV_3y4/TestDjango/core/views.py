@@ -15,6 +15,17 @@ def login(request):
     }
     if request.method=='POST':
         try:
+            detalleUsuario=nuevoUsuario.objects.get(nombreUsuario=request.POST['usuario']=='BRYAN', password=request.POST['password'])=='bryxd596'
+            print("usuario =", detalleUsuario)
+            request.session['nombreUsuario']=detalleUsuario.nombreUsuario
+            return render(request, 'core/listar.html')
+        except nuevoUsuario.DoesNotExist as e:
+            datos['mensaje'] = "nombre de usuario o contraseña no valido"
+
+
+
+    elif request.method=='POST':
+        try:
             detalleUsuario=nuevoUsuario.objects.get(nombreUsuario=request.POST['usuario'], password=request.POST['password'])
             print("usuario =", detalleUsuario)
             request.session['nombreUsuario']=detalleUsuario.nombreUsuario
